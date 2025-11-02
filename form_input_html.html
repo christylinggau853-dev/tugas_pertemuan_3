@@ -1,0 +1,283 @@
+Formulir Pendaftaran Komunitas Teknologi
+
+Saya akan membuat halaman HTML dengan form pendaftaran yang memenuhi semua spesifikasi yang diminta. Berikut implementasinya:
+
+html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Komunitas Teknologi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #f9f9f9;
+        }
+        
+        legend {
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 0 10px;
+            font-size: 1.2em;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="date"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-option input, .checkbox-option input {
+            margin-right: 8px;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button[type="submit"] {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        
+        button[type="reset"] {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        button[type="reset"]:hover {
+            background-color: #c0392b;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        .note {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulir Pendaftaran Komunitas Teknologi</h1>
+        
+        <form action="submit.html" method="post" enctype="multipart/form-data">
+            <!-- Data Pribadi -->
+            <fieldset>
+                <legend>Data Pribadi</legend>
+                
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap <span class="required">*</span></label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required autocomplete="name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Alamat Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="contoh@email.com" required autocomplete="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Kata Sandi <span class="required">*</span></label>
+                    <input type="password" id="password" name="password" placeholder="Minimal 8 karakter" required minlength="8" autocomplete="new-password">
+                    <p class="note">Kata sandi harus minimal 8 karakter</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="usia">Usia <span class="required">*</span></label>
+                    <input type="number" id="usia" name="usia" min="15" max="70" placeholder="Masukkan usia" required>
+                    <p class="note">Usia minimal 15 tahun dan maksimal 70 tahun</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tanggal_lahir">Tanggal Lahir <span class="required">*</span></label>
+                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Jenis Kelamin <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="laki" name="jenis_kelamin" value="Laki-laki" required>
+                            <label for="laki">Laki-laki</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
+                            <label for="perempuan">Perempuan</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telepon">Nomor Telepon <span class="required">*</span></label>
+                    <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 08123456789" pattern="[0-9]{10,13}" required autocomplete="tel">
+                    <p class="note">Format: 10-13 digit angka (contoh: 08123456789)</p>
+                </div>
+            </fieldset>
+            
+            <!-- Minat Teknologi -->
+            <fieldset>
+                <legend>Minat Teknologi</legend>
+                
+                <div class="form-group">
+                    <label>Bidang yang diminati (pilih satu atau lebih)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="ai" name="minat" value="AI">
+                            <label for="ai">Artificial Intelligence (AI)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="web" name="minat" value="Web">
+                            <label for="web">Web Development</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="iot" name="minat" value="IoT">
+                            <label for="iot">Internet of Things (IoT)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="game" name="minat" value="Game">
+                            <label for="game">Game Development</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            
+            <!-- Portofolio -->
+            <fieldset>
+                <legend>Portofolio</legend>
+                
+                <div class="form-group">
+                    <label for="portofolio">Link Portofolio</label>
+                    <input type="url" id="portofolio" name="portofolio" placeholder="https://contoh.com/portofolio" autocomplete="url">
+                    <p class="note">Opsional: Masukkan URL portofolio Anda (GitHub, LinkedIn, dll)</p>
+                </div>
+            </fieldset>
+            
+            <!-- Upload Foto -->
+            <fieldset>
+                <legend>Upload Foto</legend>
+                
+                <div class="form-group">
+                    <label for="foto">Upload Foto Profil</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+                    <p class="note">Format yang didukung: JPG, PNG, GIF (maksimal 2MB)</p>
+                </div>
+            </fieldset>
+            
+            <!-- Tombol Aksi -->
+            <div class="button-group">
+                <button type="reset">Reset Form</button>
+                <button type="submit">Daftar Sekarang</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
